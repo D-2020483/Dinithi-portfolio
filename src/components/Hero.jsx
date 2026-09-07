@@ -120,23 +120,27 @@ function Hero() {
         </div>
 
         <aside className="relative shrink-0 self-center lg:self-auto">
-          <div className="absolute -inset-3 rounded-full bg-primary/20 blur-2xl" />
-          <div className="relative size-36 overflow-hidden rounded-full border-2 border-primary/35 bg-card shadow-[0_0_0_8px_rgba(255,255,255,0.04)] sm:size-44">
-            {!photoFailed ? (
-              <img
-                src={site.photo}
-                alt={site.name}
-                className="size-full object-cover"
-                onError={() => setPhotoFailed(true)}
-              />
-            ) : (
-              <div className="flex size-full items-center justify-center bg-primary/15 text-3xl font-semibold text-primary sm:text-4xl">
-                {site.initials}
+          <div className="absolute -inset-4 rounded-3xl bg-primary/15 blur-2xl" />
+          <div className="absolute -right-3 -bottom-3 h-full w-full rounded-2xl border border-primary/20 bg-primary/5" />
+          <div className="relative w-44 overflow-hidden rounded-2xl border border-white/12 bg-card shadow-2xl sm:w-52">
+            <div className="relative aspect-3/4 overflow-hidden bg-linear-to-br from-primary/20 via-card to-sky-500/10">
+              {!photoFailed ? (
+                <img
+                  src={site.photo}
+                  alt={site.name}
+                  className="size-full object-cover transition-transform duration-500 hover:scale-105"
+                  onError={() => setPhotoFailed(true)}
+                />
+              ) : (
+                <div className="flex size-full items-center justify-center text-4xl font-semibold text-primary sm:text-5xl">
+                  {site.initials}
+                </div>
+              )}
+              <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-background/95 via-background/55 to-transparent p-4 pt-10">
+                <p className="text-sm font-semibold text-foreground">{site.shortName}</p>
+                <p className="mt-0.5 text-xs text-primary">{site.role}</p>
               </div>
-            )}
-          </div>
-          <div className="absolute -right-2 -bottom-2 rounded-full border border-white/10 bg-background/90 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur sm:-right-3">
-            {site.role.split(" ").slice(0, 2).join(" ")}
+            </div>
           </div>
         </aside>
       </div>
