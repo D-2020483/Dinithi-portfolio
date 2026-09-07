@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react"
-import { externalUrl, site } from "@/data/site"
+import { externalUrl, mailComposeUrl, site } from "@/data/site"
 
 function Footer() {
   return (
@@ -27,7 +27,13 @@ function Footer() {
           >
             <Linkedin className="size-4" />
           </a>
-          <a href={`mailto:${site.email}`} aria-label="Email" className="hover:text-primary">
+          <a
+            href={mailComposeUrl(site.email)}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Email"
+            className="hover:text-primary"
+          >
             <Mail className="size-4" />
           </a>
         </div>

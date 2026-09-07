@@ -3,13 +3,13 @@ import { Check, Github, Linkedin, LoaderCircle, Mail, Send } from "lucide-react"
 import SectionHeading from "@/components/SectionHeading"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/useInView"
-import { externalUrl, site, socialLabel } from "@/data/site"
+import { externalUrl, mailComposeUrl, site, socialLabel } from "@/data/site"
 
 const channels = [
   {
     label: "Email",
     value: site.email,
-    href: `mailto:${site.email}`,
+    href: mailComposeUrl(site.email),
     icon: Mail,
   },
   {
@@ -65,11 +65,16 @@ function Contact() {
       form.reset()
     } catch {
       // Fallback: open the visitor's email app so the message still reaches you
-      const subject = encodeURIComponent(`Portfolio inquiry from ${name || "a visitor"}`)
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)
-      window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`
+      window.open(
+        mailComposeUrl(site.email, {
+          subject: `Portfolio inquiry from ${name || "a visitor"}`,
+          body: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+        }),
+        "_blank",
+        "noreferrer",
+      )
       setStatus("idle")
-      setError("Opened your email app as a backup. If nothing opened, email me directly.")
+      setError("Opened Gmail as a backup. If nothing opened, email me directly.")
     }
   }
 
@@ -79,7 +84,7 @@ function Contact() {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1800)
     } catch {
-      window.location.href = `mailto:${site.email}`
+      window.open(mailComposeUrl(site.email), "_blank", "noreferrer")
     }
   }
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { ArrowDownRight, Github, Linkedin, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { externalUrl, site } from "@/data/site"
+import { externalUrl, mailComposeUrl, site } from "@/data/site"
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -109,7 +109,9 @@ function Hero() {
                 <Linkedin className="size-4" />
               </a>
               <a
-                href={`mailto:${site.email}`}
+                href={mailComposeUrl(site.email)}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/10 hover:border-primary/40 hover:text-primary"
                 aria-label="Email"
               >

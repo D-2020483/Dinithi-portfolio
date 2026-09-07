@@ -49,6 +49,7 @@ export const site = {
         "A full-stack inventory platform for tracking products, orders, and reports. Built to keep stock levels visible and daily operations easy to manage.",
       tags: ["React", "Node.js", "MongoDB"],
       accent: "from-teal-400/25 via-cyan-500/10 to-transparent",
+      image: "/projects/inventory.png",
       github: "https://github.com/D-2020483",
       live: "",
     },
@@ -59,6 +60,7 @@ export const site = {
         "A point-of-sale system for product management and billing. Fast checkout, clear receipts, and a workflow that store teams can pick up quickly.",
       tags: ["React", "Node.js", "MongoDB"],
       accent: "from-sky-400/25 via-indigo-500/10 to-transparent",
+      image: "/projects/pos.png",
       github: "https://github.com/D-2020483",
       live: "",
     },
@@ -69,10 +71,23 @@ export const site = {
         "This site — a personal portfolio built with React and Tailwind CSS, focused on clarity, motion, and a professional first impression.",
       tags: ["React", "Tailwind CSS", "Vite"],
       accent: "from-emerald-400/25 via-teal-500/10 to-transparent",
+      image: "/projects/portfolio.png",
       github: "https://github.com/D-2020483",
       live: "",
     },
   ],
+}
+
+/** Open Gmail compose in the browser so email works without a desktop mail app. */
+export function mailComposeUrl(email, { subject, body } = {}) {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: email,
+  })
+  if (subject) params.set("su", subject)
+  if (body) params.set("body", body)
+  return `https://mail.google.com/mail/?${params.toString()}`
 }
 
 /** Ensure social URLs always open externally (never as same-site paths). */
