@@ -6,7 +6,8 @@ import SectionHeading from "@/components/SectionHeading"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/useInView"
 import { downloadCvPdf } from "@/lib/cvPdf"
-import { cvPageUrl, cvPath, site } from "@/data/site"
+import { cv, cvPageUrl, cvViewPath } from "@/data/cv"
+import { site } from "@/data/site"
 
 function Resume() {
   const [ref, visible] = useInView()
@@ -19,7 +20,7 @@ function Resume() {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1800)
     } catch {
-      window.open(cvPath, "_blank", "noreferrer")
+      window.open(cvViewPath, "_blank", "noreferrer")
     }
   }
 
@@ -45,7 +46,7 @@ function Resume() {
             </h3>
             <p className="mt-2 text-sm text-primary">{site.role}</p>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Get a PDF copy of my CV, or scan the code to view the full version in the browser.
+              Get a one-page PDF copy of my CV, or scan the code to open the latest version.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -54,7 +55,7 @@ function Resume() {
                 Download CV
               </Button>
               <Button asChild variant="outline" className="h-11 px-5">
-                <Link to={cvPath}>
+                <Link to={cvViewPath}>
                   View CV
                   <ArrowUpRight data-icon="inline-end" />
                 </Link>
@@ -79,11 +80,11 @@ function Resume() {
                 fgColor="#0f172a"
                 level="M"
                 includeMargin={false}
-                title="QR code linking to my CV"
+                title={`QR code linking to ${cv.name}'s latest CV`}
               />
             </div>
-            <p className="mt-4 max-w-[16rem] text-center text-xs leading-relaxed text-muted-foreground">
-              Point your camera at this code. It opens my CV page so you can read or download it.
+            <p className="mt-4 max-w-[18rem] break-all text-center text-xs leading-relaxed text-muted-foreground">
+              Scan to open my latest CV. This code updates whenever the CV data is saved.
             </p>
           </aside>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { Download, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -10,12 +10,19 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { navLinks, site } from "@/data/site"
+import { cvPath, navLinks, resumePath, site } from "@/data/site"
+
+function activeNavPath(pathname) {
+  return pathname === cvPath ? resumePath : pathname
+}
 
 function Navbar() {
   const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, ready: false })
+  const listRef = useRef(null)
+  const currentPath = activeNavPath(location.pathname)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -23,6 +30,36 @@ function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+    const list = listRef.current
+    if (!list) return
+
+    const update = () => {
+      const active = list.querySelector("[data-nav-active='true']")
+      if (!active) return
+      const listRect = list.getBoundingClientRect()
+      const itemRect = active.getBoundingClientRect()
+      setIndicator({
+        left: itemRect.left - listRect.left,
+        width: itemRect.width,
+        ready: true,
+      })
+    }
+
+    update()
+    const observer = new ResizeObserver(update)
+    observer.observe(list)
+    window.addEventListener("resize", update)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener("resize", update)
+    }
+  }, [currentPath])
+
+  function isActive(link) {
+    return currentPath === link.to
+  }
 
   return (
     <header
@@ -42,16 +79,26 @@ function Navbar() {
           </span>
         </NavLink>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul ref={listRef} className="relative hidden items-center gap-1 lg:flex">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute top-0 h-full rounded-full bg-white/8 transition-all duration-300 ease-out"
+            style={{
+              left: indicator.left,
+              width: indicator.width,
+              opacity: indicator.ready ? 1 : 0,
+            }}
+          />
           {navLinks.map((link) => (
             <li key={link.to}>
               <NavLink
                 to={link.to}
                 end={link.to === "/"}
-                className={({ isActive }) =>
-                  `rounded-full px-3.5 py-1.5 text-sm transition-colors ${
-                    isActive || location.pathname === link.to
-                      ? "bg-white/8 text-foreground"
+                data-nav-active={isActive(link) ? "true" : undefined}
+                className={() =>
+                  `relative z-10 rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                    isActive(link)
+                      ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
                   }`
                 }
@@ -70,7 +117,7 @@ function Navbar() {
             onClick={downloadCvPdf}
           >
             <Download />
-            CV
+            Download CV
           </Button>
           <Button asChild className="hidden h-9 px-4 lg:inline-flex">
             <NavLink to="/contact">Let’s talk</NavLink>
@@ -94,9 +141,9 @@ function Navbar() {
                     to={link.to}
                     end={link.to === "/"}
                     onClick={() => setOpen(false)}
-                    className={({ isActive }) =>
+                    className={() =>
                       `rounded-lg px-3 py-2.5 text-sm hover:bg-muted hover:text-foreground ${
-                        isActive
+                        isActive(link)
                           ? "bg-muted text-foreground"
                           : "text-muted-foreground"
                       }`

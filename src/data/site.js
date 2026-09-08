@@ -1,7 +1,10 @@
+import { cvFileName, cvPageUrl, cvViewPath } from "@/data/cv"
+
 const PORTFOLIO_URL = "https://dinithiweerasinghaportfolio.netlify.app"
 
-export const cvPath = "/cv"
-export const cvFileName = "Dinithi-Imalsha-Weerasinghe-CV.pdf"
+export const cvPath = cvViewPath
+export const resumePath = "/resume"
+export { cvFileName, cvPageUrl }
 
 export const site = {
   name: "Dinithi Imalsha Weerasinghe",
@@ -11,7 +14,8 @@ export const site = {
   tagline: "I design and build reliable web applications that feel simple to use.",
   email: "imalsha24w@gmail.com",
   url: PORTFOLIO_URL,
-  location: "Sri Lanka",
+  location: "Gampaha, Sri Lanka",
+  phone: "(+94) 77-529 3988",
   availability: "Open to new opportunities",
   // Add your photo as public/profile.jpg (or update this path)
   photo: "/profile.jpg",
@@ -137,11 +141,6 @@ export const navLinks = [
   { to: "/about", label: "About", sectionId: "about" },
   { to: "/skills", label: "Skills", sectionId: "skills" },
   { to: "/projects", label: "Projects", sectionId: "projects" },
-  { to: cvPath, label: "CV" },
+  { to: resumePath, label: "CV", sectionId: "resume" },
   { to: "/contact", label: "Contact", sectionId: "contact" },
 ]
-
-/** Canonical CV page URL encoded in the QR code (works after the site is deployed). */
-export function cvPageUrl() {
-  return `${site.url}${cvPath}`
-}

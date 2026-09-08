@@ -9,11 +9,8 @@ import Resume from "@/components/Resume"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 import CvPage from "@/components/CvPage"
+import { useSectionScroll } from "@/hooks/useSectionScroll"
 import { cvPath, navLinks } from "@/data/site"
-
-const pathToSection = Object.fromEntries(
-  navLinks.filter((link) => link.sectionId).map((link) => [link.to, link.sectionId]),
-)
 
 const knownPaths = new Set([...navLinks.map((link) => link.to), cvPath])
 
@@ -28,25 +25,7 @@ function App() {
     }
   }, [location.pathname, navigate])
 
-  useEffect(() => {
-    if (isCvPage) {
-      window.scrollTo({ top: 0, behavior: "instant" })
-      return
-    }
-
-    const sectionId = pathToSection[location.pathname] ?? "home"
-    const el = document.getElementById(sectionId)
-    if (!el) return
-
-    if (sectionId === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-      return
-    }
-
-    const headerOffset = 72
-    const top = el.getBoundingClientRect().top + window.scrollY - headerOffset
-    window.scrollTo({ top, behavior: "smooth" })
-  }, [location.pathname, isCvPage])
+  useSectionScroll(isCvPage)
 
   return (
     <div className="relative min-h-svh overflow-x-hidden bg-background">
