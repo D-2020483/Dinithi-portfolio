@@ -1,3 +1,8 @@
+const PORTFOLIO_URL = "https://dinithiweerasinghaportfolio.netlify.app"
+
+export const cvPath = "/cv"
+export const cvFileName = "Dinithi-Imalsha-Weerasinghe-CV.pdf"
+
 export const site = {
   name: "Dinithi Imalsha Weerasinghe",
   shortName: "Dinithi Imalsha",
@@ -5,12 +10,14 @@ export const site = {
   role: "Junior Software Engineer",
   tagline: "I design and build reliable web applications that feel simple to use.",
   email: "imalsha24w@gmail.com",
+  url: PORTFOLIO_URL,
   location: "Sri Lanka",
   availability: "Open to new opportunities",
   // Add your photo as public/profile.jpg (or update this path)
   photo: "/profile.jpg",
+  cvFileName,
   social: {
-    linkedin: "https://www.linkedin.com/in/dinithi-imalsha-weerasingha-2ab59829a",
+    linkedin: "https://www.linkedin.com/in/dinithi-imalsha-weerasingha-2ab59829a/",
     github: "https://github.com/D-2020483",
   },
   roles: [
@@ -73,7 +80,7 @@ export const site = {
       accent: "from-emerald-400/25 via-teal-500/10 to-transparent",
       image: "/projects/portfolio.png",
       github: "https://github.com/D-2020483",
-      live: "",
+      live: PORTFOLIO_URL,
     },
   ],
 }
@@ -88,6 +95,24 @@ export function mailComposeUrl(email, { subject, body } = {}) {
   if (subject) params.set("su", subject)
   if (body) params.set("body", body)
   return `https://mail.google.com/mail/?${params.toString()}`
+}
+
+/** Prefill Gmail so the live portfolio URL appears in the draft they send you. */
+export function portfolioMailUrl({ name, email, message } = {}) {
+  const intro = [`Hi ${site.shortName},`, "", `I found your work at ${site.url}.`]
+  if (name || email || message) {
+    intro.push("")
+    if (name) intro.push(`Name: ${name}`)
+    if (email) intro.push(`Email: ${email}`)
+    if (message) intro.push("", message)
+  } else {
+    intro.push("", "")
+  }
+
+  return mailComposeUrl(site.email, {
+    subject: `Message via ${site.name}'s portfolio`,
+    body: intro.join("\n"),
+  })
 }
 
 /** Ensure social URLs always open externally (never as same-site paths). */
@@ -112,5 +137,11 @@ export const navLinks = [
   { to: "/about", label: "About", sectionId: "about" },
   { to: "/skills", label: "Skills", sectionId: "skills" },
   { to: "/projects", label: "Projects", sectionId: "projects" },
+  { to: cvPath, label: "CV" },
   { to: "/contact", label: "Contact", sectionId: "contact" },
 ]
+
+/** Canonical CV page URL encoded in the QR code (works after the site is deployed). */
+export function cvPageUrl() {
+  return `${site.url}${cvPath}`
+}

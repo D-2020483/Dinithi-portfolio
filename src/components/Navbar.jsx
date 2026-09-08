@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
-import { Menu } from "lucide-react"
+import { Download, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { downloadCvPdf } from "@/lib/cvPdf"
 import {
   Sheet,
   SheetContent,
@@ -41,7 +42,7 @@ function Navbar() {
           </span>
         </NavLink>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.to}>
               <NavLink
@@ -62,13 +63,22 @@ function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden h-9 px-4 md:inline-flex">
+          <Button
+            type="button"
+            variant="outline"
+            className="hidden h-9 px-3 lg:inline-flex"
+            onClick={downloadCvPdf}
+          >
+            <Download />
+            CV
+          </Button>
+          <Button asChild className="hidden h-9 px-4 lg:inline-flex">
             <NavLink to="/contact">Let’s talk</NavLink>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
+              <Button variant="outline" size="icon" className="lg:hidden">
                 <Menu />
                 <span className="sr-only">Open menu</span>
               </Button>
@@ -95,7 +105,19 @@ function Navbar() {
                     {link.label}
                   </NavLink>
                 ))}
-                <Button asChild className="mt-4 h-10">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="mt-4 h-10"
+                  onClick={() => {
+                    setOpen(false)
+                    downloadCvPdf()
+                  }}
+                >
+                  <Download />
+                  Download CV
+                </Button>
+                <Button asChild className="h-10">
                   <NavLink to="/contact" onClick={() => setOpen(false)}>
                     Let’s talk
                   </NavLink>

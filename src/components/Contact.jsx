@@ -3,13 +3,13 @@ import { Check, Github, Linkedin, LoaderCircle, Mail, Send } from "lucide-react"
 import SectionHeading from "@/components/SectionHeading"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/useInView"
-import { externalUrl, mailComposeUrl, site, socialLabel } from "@/data/site"
+import { externalUrl, portfolioMailUrl, site, socialLabel } from "@/data/site"
 
 const channels = [
   {
     label: "Email",
     value: site.email,
-    href: mailComposeUrl(site.email),
+    href: portfolioMailUrl(),
     icon: Mail,
   },
   {
@@ -54,8 +54,11 @@ function Contact() {
           name,
           email,
           message,
-          _subject: `Portfolio inquiry from ${name || "a visitor"}`,
+          portfolio: site.url,
+          _replyto: email,
+          _subject: `Portfolio inquiry from ${name || "a visitor"} — ${site.url}`,
           _template: "table",
+          _captcha: "false",
         }),
       })
 
@@ -66,10 +69,7 @@ function Contact() {
     } catch {
       // Fallback: open the visitor's email app so the message still reaches you
       window.open(
-        mailComposeUrl(site.email, {
-          subject: `Portfolio inquiry from ${name || "a visitor"}`,
-          body: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-        }),
+        portfolioMailUrl({ name, email, message }),
         "_blank",
         "noreferrer",
       )
@@ -84,7 +84,7 @@ function Contact() {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1800)
     } catch {
-      window.open(mailComposeUrl(site.email), "_blank", "noreferrer")
+      window.open(portfolioMailUrl(), "_blank", "noreferrer")
     }
   }
 
@@ -92,7 +92,7 @@ function Contact() {
     <section id="contact" className="relative py-20 sm:py-24">
       <div className="site-container">
         <SectionHeading
-          index="04"
+          index="05"
           title="Let’s work together"
           description="Have a role, a project, or a question? I would like to hear from you."
         />

@@ -164,6 +164,24 @@
   }
 }
 
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: #0f172a !important;
+  }
+
+  .cv-sheet {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

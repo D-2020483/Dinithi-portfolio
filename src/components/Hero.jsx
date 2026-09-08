@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { ArrowDownRight, Github, Linkedin, Mail, MapPin } from "lucide-react"
+import { ArrowDownRight, Download, Github, Linkedin, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { externalUrl, mailComposeUrl, site } from "@/data/site"
+import { downloadCvPdf } from "@/lib/cvPdf"
+import { externalUrl, portfolioMailUrl, site } from "@/data/site"
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -79,6 +80,10 @@ function Hero() {
                 <ArrowDownRight data-icon="inline-end" />
               </Link>
             </Button>
+            <Button type="button" variant="outline" className="h-11 px-5 text-sm" onClick={downloadCvPdf}>
+              <Download data-icon="inline-start" />
+              Download CV
+            </Button>
             <Button asChild variant="outline" className="h-11 px-5 text-sm">
               <Link to="/contact">Get in touch</Link>
             </Button>
@@ -109,7 +114,7 @@ function Hero() {
                 <Linkedin className="size-4" />
               </a>
               <a
-                href={mailComposeUrl(site.email)}
+                href={portfolioMailUrl()}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex size-9 items-center justify-center rounded-full border border-white/10 hover:border-primary/40 hover:text-primary"
