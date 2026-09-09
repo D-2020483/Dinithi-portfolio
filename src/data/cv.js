@@ -2,7 +2,7 @@ export const cvFileName = "Dinithi-Weerasingha-CV.pdf"
 
 export const cv = {
   name: "Dinithi Weerasingha",
-  headline: "Junior Software Engineer / Associate Software Engineer",
+  headline: "Junior Software Engineer",
   phone: "(+94) 77-529 3988",
   phoneHref: "tel:+94775293988",
   email: "imalsha24w@gmail.com",
@@ -20,11 +20,11 @@ export const cv = {
     url: "https://dinithiweerasinghaportfolio.netlify.app/",
   },
   summary:
-    "**Information Systems undergraduate** graduating in **October 2026**, with practical experience in **full-stack development and software testing**. Skilled in **React.js, Node.js, Express.js, FastAPI, Java, REST APIs, SQL, and NoSQL**, with experience developing and deploying web applications. Seeking a **Junior Software Engineer / Associate Software Engineer** role to contribute to modern software solutions and grow technical expertise.",
+    "**Information Systems undergraduate** graduating in **October 2026**, with practical experience in **full-stack development and software testing**. Skilled in **React.js, Node.js, Express.js, FastAPI, Java, REST APIs, SQL, and NoSQL**, with experience developing and deploying web applications. Seeking a **Junior Software Engineer** role to contribute to modern software solutions and grow technical expertise.",
   experience: [
     {
       organization: "Institute of Digital Engineering Technology Pvt. Ltd",
-      dates: "Apr. 2025 -- Nov. 2025",
+      dates: "Apr. 2025 - Nov. 2025",
       title: "Software Engineer - Trainee",
       orgUrl: "https://idet.lk",
       orgLabel: "idet.lk",
@@ -37,7 +37,7 @@ export const cv = {
     },
     {
       organization: "EWIS Solution (Pvt) Limited",
-      dates: "Sept. 2024 -- Feb. 2025",
+      dates: "Sept. 2024 - Feb. 2025",
       title: "Software Engineer - Trainee",
       orgUrl: "https://www.ewisl.net",
       orgLabel: "ewisl.net",
@@ -50,7 +50,7 @@ export const cv = {
     },
     {
       organization: "FlexyCode (Pvt) Ltd. & Evotech Institute of Higher Education",
-      dates: "May 2024 -- June 2024",
+      dates: "May 2024 - June 2024",
       title: "Software Intern Trainee",
       orgUrl: "",
       orgLabel: "",
@@ -62,7 +62,7 @@ export const cv = {
   ],
   projects: [
     {
-      title: "Civic Link -- AI-Powered Civic Issue Reporting Platform",
+      title: "Civic Link - AI-Powered Civic Issue Reporting Platform",
       year: "2026",
       linkLabel: "GitHub Repo",
       url: "https://github.com/D-2020483/AI-Community-Problem-Solver",
@@ -71,7 +71,7 @@ export const cv = {
       ],
     },
     {
-      title: "JobMatch AI -- Full-Stack Job Portal",
+      title: "JobMatch AI - Full-Stack Job Portal",
       year: "2025",
       linkLabel: "GitHub Repo",
       url: "https://github.com/D-2020483/JOB_MATCH_AI",

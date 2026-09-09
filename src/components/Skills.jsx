@@ -1,10 +1,16 @@
-import { Code2, Database, Wrench } from "lucide-react"
+import { Cloud, Code2, Database, Server, Sparkles, Wrench } from "lucide-react"
 import SectionHeading from "@/components/SectionHeading"
 import { Badge } from "@/components/ui/badge"
 import { useInView } from "@/hooks/useInView"
 import { site } from "@/data/site"
 
-const icons = [Code2, Database, Wrench]
+const iconsByTitle = {
+  Frontend: Code2,
+  Backend: Server,
+  Databases: Database,
+  "Tools & Practices": Wrench,
+  "AI & Cloud": Sparkles,
+}
 
 function Skills() {
   const [ref, visible] = useInView()
@@ -20,10 +26,10 @@ function Skills() {
 
         <div
           ref={ref}
-          className={`reveal grid gap-5 md:grid-cols-3 ${visible ? "reveal-visible" : ""}`}
+          className={`reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-3 ${visible ? "reveal-visible" : ""}`}
         >
-          {site.skillGroups.map((group, index) => {
-            const Icon = icons[index]
+          {site.skillGroups.map((group) => {
+            const Icon = iconsByTitle[group.title] ?? Cloud
             return (
               <article
                 key={group.title}

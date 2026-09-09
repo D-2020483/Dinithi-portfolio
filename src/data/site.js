@@ -7,9 +7,9 @@ export const resumePath = "/resume"
 export { cvFileName, cvPageUrl }
 
 export const site = {
-  name: "Dinithi Imalsha Weerasinghe",
-  shortName: "Dinithi Imalsha",
-  initials: "DI",
+  name: "Dinithi Imalsha Weerasingha",
+  shortName: "Dinithi Weerasingha",
+  initials: "DW",
   role: "Junior Software Engineer",
   tagline: "I design and build reliable web applications that feel simple to use.",
   email: "imalsha24w@gmail.com",
@@ -18,7 +18,7 @@ export const site = {
   phone: "(+94) 77-529 3988",
   availability: "Open to new opportunities",
   // Add your photo as public/profile.jpg (or update this path)
-  photo: "/profile.jpg",
+  photo: "/Profile.png",
   cvFileName,
   social: {
     linkedin: "https://www.linkedin.com/in/dinithi-imalsha-weerasingha-2ab59829a/",
@@ -30,26 +30,38 @@ export const site = {
     "React Developer",
   ],
   about: [
-    "I am a software engineer who enjoys turning ideas into clean, usable products. I work across the stack with React and Node.js, and I care as much about maintainable code as I do about how a feature feels to use.",
-    "I like solving real business problems — inventory, billing, reporting — and shipping interfaces that stay clear under pressure. I am always learning, always refining, and always looking for the next thing worth building.",
-  ],
+  "I’m a software engineer and Information Systems graduate-to-be with hands-on experience in full-stack web development, software testing, and AI-powered applications. I build practical, user-focused solutions using technologies such as React.js, Node.js, FastAPI, MongoDB, and PostgreSQL, with a strong focus on writing clean, maintainable code.",
+
+  "I enjoy turning real-world problems into functional software, from developing business applications to building AI-powered solutions that improve how users interact with technology. I’m comfortable working across the development lifecycle—from understanding requirements and designing solutions to developing, testing, and refining features.",
+
+  "I’m continuously learning new technologies and improving my engineering skills, and I’m looking for an opportunity as a Junior Software Engineer where I can contribute to a team, solve meaningful problems, and grow into a strong software professional.",
+],
+
   highlights: [
-    { value: "Full stack", label: "React, Node.js, MongoDB" },
-    { value: "Product-minded", label: "From idea to shipped UI" },
-    { value: "Detail-driven", label: "Readable code, thoughtful UX" },
-  ],
+  { value: "Full-Stack", label: "React, Node.js, FastAPI & Databases" },
+  { value: "AI-Powered", label: "Building practical AI-driven solutions" },
+  { value: "Product-Minded", label: "From concept to production-ready software" },
+],
   skillGroups: [
     {
       title: "Frontend",
-      items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+      items: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS", "Vite"],
     },
     {
       title: "Backend",
-      items: ["Node.js", "Express", "MongoDB", "REST APIs"],
+      items: ["Node.js", "Express.js", "FastAPI", "REST APIs"],
     },
     {
-      title: "Tools",
-      items: ["Git", "GitHub", "Vite", "Postman"],
+      title: "Databases",
+      items: ["MongoDB", "PostgreSQL", "Supabase"],
+    },
+    {
+      title: "Tools & Practices",
+      items: ["Git", "GitHub", "Postman", "Jira", "Unit Testing"],
+    },
+    {
+      title: "AI & Cloud",
+      items: ["OpenAI API", "AI Agents", "Prompt Engineering", "AWS Basics"],
     },
   ],
   projects: [

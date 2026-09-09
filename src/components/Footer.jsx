@@ -6,7 +6,7 @@ function Footer() {
     <footer className="border-t border-white/8 py-8">
       <div className="site-container flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
         <p>
-          © {new Date().getFullYear()} {site.shortName}. Built with React & Tailwind CSS.
+          © {new Date().getFullYear()} {site.shortName}.
         </p>
         <div className="flex items-center gap-3">
           <a
