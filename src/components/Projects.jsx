@@ -1,9 +1,24 @@
+import { useState } from "react"
 import { ExternalLink, Github } from "lucide-react"
 import SectionHeading from "@/components/SectionHeading"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/useInView"
 import { externalUrl, site } from "@/data/site"
+
+function ProjectImage({ src, alt }) {
+  const [failed, setFailed] = useState(false)
+  if (!src || failed) return null
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={() => setFailed(true)}
+      className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+    />
+  )
+}
 
 function Projects() {
   const [ref, visible] = useInView()
@@ -30,15 +45,8 @@ function Projects() {
               <div
                 className={`relative h-44 overflow-hidden bg-linear-to-br ${project.accent}`}
               >
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={`${project.title} preview`}
-                    className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : null}
-                <div className="absolute inset-0 bg-grid opacity-25" />
-                <div className="absolute inset-0 bg-linear-to-t from-card via-card/15 to-transparent" />
+                <ProjectImage src={project.image} alt={`${project.title} preview`} />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-card/90 via-card/10 to-transparent" />
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="rounded-full border border-white/10 bg-background/55 px-2.5 py-1 text-[11px] font-medium tracking-wide text-muted-foreground backdrop-blur">
                     {project.year}

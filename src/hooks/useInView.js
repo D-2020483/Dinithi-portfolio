@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-export function useInView({ threshold = 0.16, once = true } = {}) {
+export function useInView({ threshold = 0.01, once = true } = {}) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
 
@@ -17,7 +17,7 @@ export function useInView({ threshold = 0.16, once = true } = {}) {
         }
         if (!once) setVisible(false)
       },
-      { threshold },
+      { threshold, rootMargin: "0px 0px -8% 0px" },
     )
 
     observer.observe(el)

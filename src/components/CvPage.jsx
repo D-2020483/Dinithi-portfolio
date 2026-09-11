@@ -77,10 +77,10 @@ function CvPage() {
               Curriculum Vitae
             </p>
             <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              One-page CV
+              Professional CV
             </h1>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              A single-page resume — download the PDF or read it here.
+              Download the PDF or read the latest version here.
             </p>
           </div>
           <Button type="button" className="h-11 px-5" onClick={downloadCvPdf}>

@@ -66,37 +66,75 @@ export const site = {
   ],
   projects: [
     {
-      title: "Inventory System",
-      year: "2025",
-      description:
-        "A full-stack inventory platform for tracking products, orders, and reports. Built to keep stock levels visible and daily operations easy to manage.",
-      tags: ["React", "Node.js", "MongoDB"],
-      accent: "from-teal-400/25 via-cyan-500/10 to-transparent",
-      image: "/projects/inventory.png",
-      github: "https://github.com/D-2020483",
-      live: "",
-    },
-    {
-      title: "POS System",
-      year: "2025",
-      description:
-        "A point-of-sale system for product management and billing. Fast checkout, clear receipts, and a workflow that store teams can pick up quickly.",
-      tags: ["React", "Node.js", "MongoDB"],
-      accent: "from-sky-400/25 via-indigo-500/10 to-transparent",
-      image: "/projects/pos.png",
-      github: "https://github.com/D-2020483",
-      live: "",
-    },
-    {
-      title: "Portfolio Website",
+      title: "Civic Link",
       year: "2026",
       description:
-        "This site — a personal portfolio built with React and Tailwind CSS, focused on clarity, motion, and a professional first impression.",
-      tags: ["React", "Tailwind CSS", "Vite"],
-      accent: "from-emerald-400/25 via-teal-500/10 to-transparent",
-      image: "/projects/portfolio.png",
-      github: "https://github.com/D-2020483",
-      live: PORTFOLIO_URL,
+        "An AI-powered community issue reporting platform that helps citizens report local problems and routes them to the relevant authorities for resolution.",
+      tags: ["React", "Express.js", "FastAPI", "OpenAI"],
+      accent: "from-blue-500/25 via-indigo-500/10 to-transparent",
+      image: "/projects/civic-link.png",
+      github: "https://github.com/D-2020483/AI-Community-Problem-Solver",
+      live: "https://civic-link-frontkend.vercel.app/login",
+    },
+  
+    {
+      title: "JobMatch AI",
+      year: "2026",
+      description:
+        "A full-stack job portal with AI-powered candidate matching, helping users find relevant opportunities based on their skills and job requirements.",
+      tags: ["React", "Node.js", "MongoDB", "FastAPI", "AI"],
+      accent: "from-violet-500/25 via-purple-500/10 to-transparent",
+      image: "/projects/jobmatch-ai.svg",
+      github: "https://github.com/D-2020483/JOB_MATCH_AI",
+      live: "",
+    },
+  
+    {
+      title: "Mebius E-Commerce",
+      year: "2025",
+      description:
+        "An e-commerce application with product browsing, filtering, sorting, and ordering features designed to provide a simple and responsive shopping experience.",
+      tags: ["React", "Node.js", "MongoDB"],
+      accent: "from-pink-400/25 via-rose-500/10 to-transparent",
+      image: "/projects/mebius-ecommerce.png",
+      github: "https://github.com/D-2020483/E-Commerce_Frontend",
+      live: "https://fed-storefront-frontend-dinithi.netlify.app/",
+    },
+  
+    {
+      title: "Inventory Management System",
+      year: "2025",
+      description:
+        "A full-stack inventory management system for managing products, stock levels, users, and reports with a dashboard for monitoring daily operations.",
+      tags: ["Next.js", "Node.js", "PostgreSQL", "Prisma"],
+      accent: "from-teal-400/25 via-cyan-500/10 to-transparent",
+      image: "/projects/inventory.png",
+      github: "https://github.com/D-2020483/Smart_Invetory_Management_FND",
+      live: "https://inventory-management-bnd-dinithi.netlify.app/",
+    },
+  
+    {
+      title: "Expense Tracker",
+      year: "2025",
+      description:
+        "A web application for recording and managing personal expenses, helping users organize transactions and keep track of their spending.",
+      tags: ["React", "Node.js", "MongoDB"],
+      accent: "from-amber-400/25 via-orange-500/10 to-transparent",
+      image: "/projects/expense-tracker.png",
+      github: "https://github.com/D-2020483/personal_expense_tracker_FND",
+      live: "https://expense-tracker-dinithi.netlify.app/",
+    },
+  
+    {
+      title: "AI Agent",
+      year: "2025",
+      description:
+        "An AI-powered assistant built with Python and Gradio, allowing users to interact with an AI agent through a simple web interface and deployed on Hugging Face Spaces.",
+      tags: ["Python", "Gradio", "FastAPI", "Hugging Face"],
+      accent: "from-green-400/25 via-emerald-500/10 to-transparent",
+      image: "/projects/ai-agent.png",
+      github: "https://github.com/D-2020483/AI_Hotel_Agent",
+      live: "https://huggingface.co/spaces/Imalsha24/hotel-ai-agent",
     },
   ],
 }

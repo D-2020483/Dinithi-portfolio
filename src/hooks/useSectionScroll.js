@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useLayoutEffect, useRef } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { navLinks } from "@/data/site"
 
@@ -10,6 +10,10 @@ const sectionLinks = navLinks.filter((link) => link.sectionId)
 const pathToSection = Object.fromEntries(
   sectionLinks.map((link) => [link.to, link.sectionId]),
 )
+
+function isSectionPath(pathname) {
+  return Boolean(pathToSection[pathname])
+}
 
 function sectionTop(sectionId) {
   if (sectionId === "home") return 0
@@ -36,21 +40,33 @@ export function useSectionScroll(isCvPage) {
   const skipScrollRef = useRef(false)
   const programmaticRef = useRef(false)
   const unlockTimerRef = useRef(0)
+  const rafRef = useRef(0)
+  const pathRef = useRef(location.pathname)
+  pathRef.current = location.pathname
+
+  useLayoutEffect(() => {
+    if (!isCvPage) return undefined
+
+    cancelAnimationFrame(rafRef.current)
+    programmaticRef.current = true
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+
+    return () => {
+      programmaticRef.current = false
+    }
+  }, [isCvPage])
 
   useEffect(() => {
-    if (isCvPage) {
-      window.scrollTo({ top: 0, behavior: "instant" })
-      return
-    }
+    if (isCvPage) return undefined
 
     if (skipScrollRef.current) {
       skipScrollRef.current = false
-      return
+      return undefined
     }
 
     const sectionId = pathToSection[location.pathname] ?? "home"
     const top = sectionTop(sectionId)
-    if (top == null) return
+    if (top == null) return undefined
 
     programmaticRef.current = true
     window.scrollTo({ top, behavior: "smooth" })
@@ -64,16 +80,20 @@ export function useSectionScroll(isCvPage) {
   }, [location.pathname, isCvPage])
 
   useEffect(() => {
-    if (isCvPage) return
+    if (isCvPage) return undefined
 
     let ticking = false
 
     const updateActivePath = () => {
       ticking = false
       if (programmaticRef.current) return
+      if (!isSectionPath(pathRef.current) || !isSectionPath(window.location.pathname)) {
+        return
+      }
 
       const currentPath = pathForScrollPosition()
       if (window.location.pathname === currentPath) return
+      if (pathRef.current === currentPath) return
 
       skipScrollRef.current = true
       navigate(currentPath, { replace: true })
@@ -82,10 +102,13 @@ export function useSectionScroll(isCvPage) {
     const onScroll = () => {
       if (ticking) return
       ticking = true
-      requestAnimationFrame(updateActivePath)
+      rafRef.current = requestAnimationFrame(updateActivePath)
     }
 
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      cancelAnimationFrame(rafRef.current)
+    }
   }, [isCvPage, navigate])
 }

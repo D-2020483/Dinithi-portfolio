@@ -29,8 +29,8 @@ function Resume() {
       <div className="site-container">
         <SectionHeading
           index="04"
-          title="Download my CV"
-          description="Share this page, download a PDF, or scan the QR code to open my CV on your phone."
+          title="Professional CV"
+          description="Download a PDF copy, view it online, or scan the QR code to open it on your phone."
         />
 
         <div
@@ -39,14 +39,14 @@ function Resume() {
         >
           <div className="rounded-2xl border border-white/8 bg-card/70 p-6 sm:p-8">
             <p className="text-xs font-medium tracking-[0.22em] text-primary uppercase">
-              Resume
+              Curriculum Vitae
             </p>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
               {site.name}
             </h3>
             <p className="mt-2 text-sm text-primary">{site.role}</p>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Get a one-page PDF copy of my CV, or scan the code to open the latest version.
+              Download a professional PDF copy of my CV, or scan the code to open the latest version.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
