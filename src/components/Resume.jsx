@@ -84,7 +84,7 @@ function Resume() {
               />
             </div>
             <p className="mt-4 max-w-[18rem] break-all text-center text-xs leading-relaxed text-muted-foreground">
-              Scan to open my latest CV. This code updates whenever the CV data is saved.
+              Scan to open my latest CV.
             </p>
           </aside>
         </div>
