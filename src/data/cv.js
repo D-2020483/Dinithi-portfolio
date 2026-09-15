@@ -13,7 +13,7 @@ export const cv = {
   },
   linkedin: {
     label: "LinkedIn",
-    url: "https://linkedin.com/in/dinithi-weerasingha",
+    url: "https://www.linkedin.com/in/dinithi-imalsha-weerasingha-2ab59829a/",
   },
   website: {
     label: "Portfolio",
