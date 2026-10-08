@@ -104,7 +104,7 @@ export const cv = {
     degree: "BSc (Hons) in Information Systems (Special Degree)",
     location: "Mihintale, Sri Lanka",
     certifications:
-      "Full-stack Engineer (STEM Link, 2025)  |  Java Master Course (Evotech Institute, 2024)",
+      "AI Launch Pad Program (Ascentic, 2026) | Full-stack Engineer (STEM Link, 2025)  |  Java Master Course (Evotech Institute, 2024)",
   },
   skills: [
     {
