@@ -16,7 +16,7 @@ export const site = {
   url: PORTFOLIO_URL,
   location: "Gampaha, Sri Lanka",
   phone: "(+94) 77-529 3988",
-  availability: "Open to new opportunities",
+  availability: "Open to Junior & Graduate Trainee Software Engineer roles",
   // Add your photo as public/profile.jpg (or update this path)
   photo: "/Profile.png",
   cvFileName,
@@ -26,16 +26,18 @@ export const site = {
   },
   roles: [
     "Junior Software Engineer",
+    "Graduate Trainee Software Engineer",
     "Full Stack Developer",
     "React Developer",
   ],
+  
   about: [
-  "I’m a software engineer and Information Systems graduate-to-be with hands-on experience in full-stack web development, software testing, and AI-powered applications. I build practical, user-focused solutions using technologies such as React.js, Node.js, FastAPI, MongoDB, and PostgreSQL, with a strong focus on writing clean, maintainable code.",
+    "I'm an Information Systems graduate and software engineer with hands-on experience in full-stack web development, software testing, and AI-powered applications. I build practical, user-focused solutions using React.js, Node.js, FastAPI, MongoDB, and PostgreSQL, with a strong focus on clean, maintainable code.",
 
-  "I enjoy turning real-world problems into functional software, from developing business applications to building AI-powered solutions that improve how users interact with technology. I’m comfortable working across the development lifecycle—from understanding requirements and designing solutions to developing, testing, and refining features.",
+    "I enjoy turning real-world problems into working software, from business applications to AI-powered tools that improve how people interact with technology. I'm comfortable across the development lifecycle: understanding requirements, designing solutions, building, testing, and refining features.",
 
-  "I’m continuously learning new technologies and improving my engineering skills, and I’m looking for an opportunity as a Junior Software Engineer where I can contribute to a team, solve meaningful problems, and grow into a strong software professional.",
-],
+    "I'm now a graduate, actively looking for a Junior Software Engineer or Graduate Trainee Software Engineer role where I can contribute to a team, solve meaningful problems, and keep growing into a strong software professional.",
+  ],
 
   highlights: [
   { value: "Full-Stack", label: "React, Node.js, FastAPI & Databases" },
