@@ -10,7 +10,6 @@ export const site = {
   name: "Dinithi Imalsha Weerasingha",
   shortName: "Dinithi Weerasingha",
   initials: "DW",
-  role: "Junior Software Engineer",
   tagline: "I design and build reliable web applications that feel simple to use.",
   email: "imalsha24w@gmail.com",
   url: PORTFOLIO_URL,
