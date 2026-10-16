@@ -2,7 +2,7 @@ export const cvFileName = "Dinithi-Weerasingha-CV.pdf"
 
 export const cv = {
   name: "Dinithi Weerasingha",
-  headline: "Junior Software Engineer",
+  headline: "Software Engineer (Junior / Graduate Trainee)",
   phone: "(+94) 77-529 3988",
   phoneHref: "tel:+94775293988",
   email: "imalsha24w@gmail.com",
@@ -20,7 +20,8 @@ export const cv = {
     url: "https://dinithiweerasinghaportfolio.netlify.app/",
   },
   summary:
-    "**Information Systems undergraduate** graduating in **October 2026**, with practical experience in **full-stack development and software testing**. Skilled in **React.js, Node.js, Express.js, FastAPI, Java, REST APIs, SQL, and NoSQL**, with experience developing and deploying web applications. Seeking a **Junior Software Engineer** role to contribute to modern software solutions and grow technical expertise.",
+  "**Bachelor of Science Honours in Information Systems graduate (2026)** with hands-on experience in **full-stack development and software testing** gained through three industry training placements. Skilled in **React.js, Node.js, Express.js, FastAPI, Java, REST APIs, SQL, and NoSQL**, with experience building and deploying web applications, including AI-integrated projects. Open to **Junior Software Engineer** and **Graduate Trainee Software Engineer** roles where I can contribute to modern software solutions and keep growing as an engineer.",
+    
   experience: [
     {
       organization: "Institute of Digital Engineering Technology Pvt. Ltd",
@@ -100,8 +101,8 @@ export const cv = {
   ],
   education: {
     school: "Rajarata University of Sri Lanka",
-    dates: "2020 -- Present (Expected October 2026)",
-    degree: "BSc (Hons) in Information Systems (Special Degree)",
+    dates: "2020 - 2026",
+    degree: "Bachelor of Science Honours in Information Systems",
     location: "Mihintale, Sri Lanka",
     certifications:
       "AI Launch Pad Program (Ascentic, 2026) |  Full-stack Engineer (STEM Link, 2025)  |  Java Master Course (Evotech Institute, 2024)",
